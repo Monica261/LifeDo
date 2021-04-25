@@ -95,7 +95,7 @@ export default function Home({ navigation }){
         {
           load 
           ? 
-          <ActivityIndicator color='#FBB03B' size={50}/>
+          <ActivityIndicator color='#EE6B26' size={50}/>
           :
           tasks.map(t => 
           (

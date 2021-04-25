@@ -1,5 +1,5 @@
 {
-  "name": "tg",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,12 +7,15 @@
     "start": "nodemon src/index.js"
   },
   "keywords": [],
-  "author": "Mônica Nathalia Sousa Torres",
+  "author": "Rodrigo Gonçalves Santana",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "date-fns": "^2.16.1",
+    "date-fns": "^2.11.0",
     "express": "^4.17.1",
-    "mongoose": "^5.11.11"
+    "mongoose": "^5.9.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }

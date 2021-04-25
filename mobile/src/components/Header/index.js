@@ -1,10 +1,10 @@
 import React from 'react';
-import { Text, View, Image, TouchableOpacity, StatusBar } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 
 import styles from './styles';
 
 // ICONES
-import logo from '../../assets/logo2.png';
+import logo from '../../assets/logo.png';
 import bell from '../../assets/bell.png';
 import qrcode from '../../assets/qrcode.png';
 import back from '../../assets/back.png';

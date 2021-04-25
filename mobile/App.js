@@ -1,6 +1,5 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import {StatusBar} from 'react-native'
 
 // Desabilita os alertas.
 console.disableYellowBox = true;
