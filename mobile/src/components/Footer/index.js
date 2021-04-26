@@ -19,7 +19,7 @@ export default function Footer({ icon, onPress }){
       </TouchableOpacity>
 
       <Text style={styles.text}>
-        Organizando sua vida
+        Organizando a vida do idoso
       </Text>
     </View>
   )

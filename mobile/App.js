@@ -7,12 +7,13 @@ console.disableYellowBox = true;
 import Home from './src/views/Home';
 import Task from './src/views/Task';
 import QrCode from './src/views/QrCode';
+import Contato from './src/views/Contato';
 
 const Routes = createAppContainer(
   createSwitchNavigator({
     Home,
     Task,
-    QrCode
+    Contato
   })
 );
 

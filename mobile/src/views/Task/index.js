@@ -43,13 +43,13 @@ export default function Task({ navigation }){
     return Alert.alert('Defina a descrição da tarefa!');
 
     if(!type)
-    return Alert.alert('Escolha um tipo para a terafa!');
+    return Alert.alert('Escolha um tipo para a tarefa!');
 
     if(!date)
-    return Alert.alert('Escolha uma data para a terafa!');
+    return Alert.alert('Escolha uma data para a tarefa!');
 
     if(!hour)
-    return Alert.alert('Escolha uma hora para a terafa!');
+    return Alert.alert('Escolha uma hora para a tarefa!');
 
     if(id){
       await api.put(`/task/${id}`, {
@@ -96,13 +96,13 @@ export default function Task({ navigation }){
     });
   }
 
-  async function DeleteTask(){
+  async function DeleteTask(){//utilizando a API para deletar uma tarefa pelo ID
     await api.delete(`/task/${id}`).then(() => {
       navigation.navigate('Home');
     });
   }
 
-  async function Remove(){
+  async function Remove(){//função que remove a tarefa
     Alert.alert(
       'Remover Tarefa',
       'Deseja realmente remover essa tarefa?',

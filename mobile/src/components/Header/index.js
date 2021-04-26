@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
+import {AntDesign} from '@expo/vector-icons';
 
 import styles from './styles';
 
@@ -8,6 +9,7 @@ import logo from '../../assets/logo.png';
 import bell from '../../assets/bell.png';
 import qrcode from '../../assets/qrcode.png';
 import back from '../../assets/back.png';
+import Contato from '../../views/Contato';
 
 
 export default function Header({ showNotification, showBack, pressNotification, late, navigation }){
@@ -15,8 +17,8 @@ export default function Header({ showNotification, showBack, pressNotification, 
     navigation.navigate('Home');
   }
 
-  function OpenQrCode(){
-    navigation.navigate('QrCode');
+  function OpenContato(){
+    navigation.navigate('Contato');
   }
   
   return(
@@ -28,8 +30,8 @@ export default function Header({ showNotification, showBack, pressNotification, 
           <Image source={back} style={styles.leftIconImage} />
         </TouchableOpacity>
         :
-        <TouchableOpacity style={styles.leftIcon} onPress={OpenQrCode}>
-          <Image source={qrcode} style={styles.leftIconImage}/>
+        <TouchableOpacity style={styles.leftIcon} onPress={OpenContato}>
+          <AntDesign source={Contato} style={styles.leftIconImage} name="phone" size={30} color="#FBB03B"/>
         </TouchableOpacity>
         }
 

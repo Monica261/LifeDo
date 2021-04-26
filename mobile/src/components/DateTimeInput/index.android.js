@@ -36,7 +36,7 @@ export default function DateTimeInputAndroid({ type, save, date, hour }){
       });
 
       if(action == DatePickerAndroid.dateSetAction)
-        if(isPast(new Date(year, month, day, 24, 59, 56, 0))){ 
+        if(isPast(new Date(year, month, day, 24, 59, 59, 0))){ 
           return Alert.alert('Você não pode escolhar uma data passada!');
         }else{
           setDateTime(`${day} - ${month} - ${year}`); 
