@@ -7,7 +7,7 @@
     "start": "nodemon src/index.js"
   },
   "keywords": [],
-  "author": "Rodrigo Gonçalves Santana",
+  "author": "Mônica Nathalia Sousa Torres",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
