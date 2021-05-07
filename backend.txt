@@ -1,0 +1,14 @@
+Arquitetura do projeto:
+
+MVC - Model View Controller
+traz uma definição e organização das responsabilidades dentro do Backend e Frontend
+
+*Model - dentro dessa camada eu defino a representação de uma tarefa pra ser armazenada no bd.
+(vai guardar as representações das tarefas e tudo aquilo que vai ser armazenado no bd)
+*Controller - é onde fica a regra de negocio da aplicação, onde fica as validações, é onde 
+verificamos se uma certa tarefa está cadastrada ou não.(Mongo e Node)
+*View - é a camada disponivel na parte mobile, armazena as telas.(onde vai ficar a interface)
+
+assim eu consigo separar muito bem as responsabilidades dentro do meu projeto, o que facilita
+muito a manutenção e deixa o código organizado.
+
