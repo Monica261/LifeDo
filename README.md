@@ -2,8 +2,11 @@
 
 <p>
 	A API foi desenvolida em Node.js, as rotas da api já estão prontas.
+	<br/>
 	O App está consumindo os dados que a API fornece e exibindo as tarefas
-	que estão sendo salvas no Mongo para o usuario.
+	que estão sendo salvas no Mongo, para o usuario. Cada usuario tem um 
+	identificador único que é o macaddress do seu celular, exibindo assim
+	somente as tarefas daquele usuario para ele mesmo.
 </p>
 
 <div style="padding: 10px 124px;">
