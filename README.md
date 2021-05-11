@@ -1,4 +1,4 @@
-<h1>LifeD<i class="fas fa-check-circle"></i></h1>
+<h1>LifeDo</h1>
 
 <p>
 	A API foi desenvolvido em Node.js, as rotas da api já estão prontas.
