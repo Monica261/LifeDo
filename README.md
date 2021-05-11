@@ -1,8 +1,8 @@
 <h1>App gerenciamento de cuidados com idosos</h1>
 
 <p>
-	A API foi desenvolida em Node.js, as rotas da api já estão prontas.
-	<br/>
+	A API foi desenvolvido em Node.js, as rotas da api já estão prontas.
+	<br/><br/>
 	O App está consumindo os dados que a API fornece e exibindo as tarefas
 	que estão sendo salvas no Mongo, para o usuario. Cada usuario tem um 
 	identificador único que é o macaddress do seu celular, exibindo assim
