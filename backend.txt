@@ -7,8 +7,35 @@ traz uma definição e organização das responsabilidades dentro do Backend e F
 (vai guardar as representações das tarefas e tudo aquilo que vai ser armazenado no bd)
 *Controller - é onde fica a regra de negocio da aplicação, onde fica as validações, é onde 
 verificamos se uma certa tarefa está cadastrada ou não.(Mongo e Node)
-*View - é a camada disponivel na parte mobile, armazena as telas.(onde vai ficar a interface)
+*View - é a camada disponivel na parte mobile, armazena as telas.(onde vai ficar a interface, a parte do cliente)
 
 assim eu consigo separar muito bem as responsabilidades dentro do meu projeto, o que facilita
 muito a manutenção e deixa o código organizado.
 
+ARQUIVOS E PASTAS:
+
+*package.json é o meu arquivo mais importante do Node, pq sempre que nós fomos instalar
+novos modulos, dependencias, ele vai regitrar dentro do package.json e ele gera uma 
+pasta node modules, que é a pasta que guarda todos os modulos do nosso projeto.
+
+*dentro da pasta *config vão ficas as minhas configurações com o bd.
+
+*dentro da pasta *controller vai ficar toda a parte inteligente.
+
+*dentro da pasta *model é onde fica as representações das informações que vão fica armazenadas no bd.
+
+*o express é um modulo do Node que vai deixar o meu servidor online, eu defino que porta 
+a minha API vai receber as requisições e devolver as respostas.
+
+*o nodemon atualiza sozinho conforme eu salvo meu arquivo.
+
+*instalei o mongoose pra fazer a conexão com o bd e pra definir a representação de dados
+que devem ser armazenados no bd.
+
+*criei a pasta *config e dentro dela o meu arquivo database.js, pq nele eu faço a importação
+do mongoose e a conexão.
+
+*dentro da minha pasta *model eu criei o meu arquivo TaskModel.js que é a representação de
+informações a cerca de uma tarefa que será cadastrada no bd.
+
+*eu to capturando o macadress pq ele é um identificador fisico único de cada dispositivo. 
