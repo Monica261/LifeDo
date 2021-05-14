@@ -11,12 +11,13 @@
 
 <div style="padding: 10px 124px;">
 	<div float="left">
-		<img src="screen1.jpeg" alt="Tela que exibe as tarefas" width="280" style="padding: 20px" />
-		<img src="screen2.jpeg" alt="Tela tarefas atrasadas" width="280" style="padding: 20px" />
+		<img src="screen1.jpeg" alt="Tela que exibe as tarefas" width="150" style="padding: 20px" />
+		<img src="screen5.jpeg" alt="Tela detalhes de uma tarefa" width="150" style="padding: 20px" />
+		<img src="screen2.jpeg" alt="Tela tarefas atrasadas" width="150" style="padding: 20px" />
 	</div>
 
 <div float="left">
-	<img src="screen3.jpeg" alt="Tela de cadastro de uma tarefa" width="280" style="padding: 20px" />
-	<img src="screen4.jpeg" alt="Tela de suporte ao cliente" width="280" style="padding: 20px" />
+	<img src="screen3.jpeg" alt="Tela de cadastro de uma tarefa" width="150" style="padding: 20px" />
+	<img src="screen4.jpeg" alt="Tela de suporte ao cliente" width="150" style="padding: 20px" />
 </div>
 </div>
