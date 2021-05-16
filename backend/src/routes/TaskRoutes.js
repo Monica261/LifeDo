@@ -1,5 +1,5 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express');//importo o express
+const router = express.Router();//ele identifica as rotas
 
 const TaskController = require('../controller/TaskController');
 const TaskValidation = require('../middlewares/TaskValidation');

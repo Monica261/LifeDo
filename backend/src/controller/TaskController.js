@@ -14,21 +14,21 @@ const current = new Date();
 
 class TaskController {
 
-  async create(req, res){
-    const task = new TaskModel(req.body);
+  async create(req, res){//recebe por parametro a req e a resp, essa função cria uma nova tarefa no BD
+    const task = new TaskModel(req.body);//recebe oq vai chegar pelo corpo da req
     await task
-          .save()
-          .then(response => {
-            return res.status(200).json(response);
+          .save()//quando receber as infos, salva no bd
+          .then(response => {//caso tudo der certo
+            return res.status(200).json(response);//devolvo a resposta junto com o status
           })
-          .catch(error => {
-            return res.status(500).json(error);
+          .catch(error => {//caso tudo der errado
+            return res.status(500).json(error);//devolvo o status e o erro que deu
           });
   }
 
-  async update(req, res){
-    await TaskModel.findByIdAndUpdate({'_id': req.params.id}, req.body, { new: true })
-    .then(response => {
+  async update(req, res){//função pra atualizar os dados de uma tarefa
+    await TaskModel.findByIdAndUpdate({'_id': req.params.id}, req.body, { new: true })//procura a tarefa pelo ID que é passado como parametro, e verifica oq mudou no corpo da minha req
+    .then(response => {//new: true, vai retornar os dados da minha tarefa semrpe atualizados
       return res.status(200).json(response);
     })
     .catch(error => {
@@ -37,10 +37,10 @@ class TaskController {
 
   }
 
-  async all(req, res){
+  async all(req, res){//função para listar todas as tarefas
     
-    await TaskModel.find({ macaddress: {'$in': req.params.macaddress }})
-          .sort('when')
+    await TaskModel.find({ macaddress: {'$in': req.params.macaddress }})//filtra pelo macaddres, mostrando somente as tarefas de um determinado dispositivo, eu recupero pelo param da req
+          .sort('when')//trazer as infos organizadas por data e hora
           .then(response => {
             return res.status(200).json(response);
           })

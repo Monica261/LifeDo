@@ -39,3 +39,38 @@ do mongoose e a conexão.
 informações a cerca de uma tarefa que será cadastrada no bd.
 
 *eu to capturando o macadress pq ele é um identificador fisico único de cada dispositivo. 
+
+*dentro da minha pasta *controller eu tenho o meu arquivo *TaskController.js, nele eu vou trazer
+o meu modelo(TaskModel.js), esse meu arquivo eu escrevo ele em forma de class, pq dentro de uma
+class eu posso ter várias funções.
+
+*tudo que vier pelo corpo da req eu vou transformar ele em um TaskModel, pq no meu TaskModel tem 
+os meus campos obrigatorios(no body eu informo esses campos no corpo da requisição).
+
+*depois eu vou no meu *index.js e incluo ...
+
+*dentro da pasta routes eu vou criar o arquivo *TaskRoutes.js, dentro dele eu crio as minhas 
+rotas.
+
+*preciso mostrar pra minha API como ela faz pra chegar na rota, defino isso na minha index.js.
+
+*dentro da pasta middlewares eu tenho o meu arquivo *TaskValidation.js de validação dos campos
+obrigatorios, pra isso eu to usando um conceito muito importante dentro das APIS que são os
+middlewares(que no caso são funções de interceptação, eles tem acesso tanto a req quanto a 
+resposta), ele analisa e diz se pode prosseguir ou não. 
+
+*importo o meu modulo de validação no TaskRoutes.js.
+
+*23. Middleware de Validação de Tarefa, 24. Atualizando uma Tarefa - ASSISTIR NOVAMENTE.
+
+*ORGANIZAR PROJETO - ORDEM DE APRESENTAÇÃO.
+
+
+/*INSOMNIA*/
+
+*Eu passo as infos no corpo da requisição, pra isso eu uso o Insomnia. Add as requisições
+na minha pasta(create, put, delete, update, all, show, done, late, today, week, month, year), na
+hora de mandar infos eu escolho JSON pq vou mandar e receber infos.
+
+/*ATUALIZANDO UMA TAREFA*/
+

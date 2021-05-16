@@ -1,0 +1,8 @@
+Olá nesse vídeo eu vou mostrar a minha aplicação rodando, esse aplicativo foi desenvolvido
+para auxiliar profissionais cuidadores de idosos e teve como cliente o asilo São Vicente de
+Paula.
+
+Então pra armazenar as tarefas eu estou usando o Mongo como Banco de dados, o Node como backend
+e o React Native no meu front
+
+Então vamos lá...
