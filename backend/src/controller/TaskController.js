@@ -49,8 +49,8 @@ class TaskController {
           });
   }
 
-  async show(req, res){
-    await TaskModel.findById(req.params.id)
+  async show(req, res){//função para listar uma tarefa especifica
+    await TaskModel.findById(req.params.id)//pega o ID que vem como param 
     .then(response => {
       if(response)
         return res.status(200).json(response);
@@ -62,8 +62,8 @@ class TaskController {
     });
   }
 
-  async delete(req, res){
-    await TaskModel.deleteOne({'_id': req.params.id})
+  async delete(req, res){//função para deletar uma tarefa especifica
+    await TaskModel.deleteOne({'_id': req.params.id})//recebe o ID pelo param que vem na req
           .then(response => {
             return res.status(200).json(response);
           })
@@ -72,11 +72,11 @@ class TaskController {
           });
   }
 
-  async done(req, res){
-    await TaskModel.findByIdAndUpdate(
-      {'_id': req.params.id},
+  async done(req, res){//função para definir se uma tarefa foi concluida ou n.
+    await TaskModel.findByIdAndUpdate(//buscar a tarefa pelo ID e atualizar os:
+      {'_id': req.params.id},//recebo o ID pelo param
       {'done': req.params.done},
-      {new: true})
+      {new: true})//sempre devolver os dados da tarefa atualizados
       .then(response => {
         return res.status(200).json(response);
       })
@@ -85,7 +85,7 @@ class TaskController {
       });
   }
 
-  async late(req, res){
+  async late(req, res){//função para exibir as tarefas atrasadas
     await TaskModel
     .find({
       'when': {'$lt': current},
