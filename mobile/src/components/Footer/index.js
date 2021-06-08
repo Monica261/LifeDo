@@ -8,6 +8,7 @@ import {
 
 import styles from './styles';
 
+//icones
 import add from '../../assets/add.png';
 import save from '../../assets/save.png';
 

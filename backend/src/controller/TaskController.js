@@ -10,7 +10,7 @@ const {
   endOfYear
  } = require('date-fns');
 
-const current = new Date();
+const current = new Date();//essa minha const guarda a data e hora atual
 
 class TaskController {
 
@@ -38,7 +38,6 @@ class TaskController {
   }
 
   async all(req, res){//função para listar todas as tarefas
-    
     await TaskModel.find({ macaddress: {'$in': req.params.macaddress }})//filtra pelo macaddres, mostrando somente as tarefas de um determinado dispositivo, eu recupero pelo param da req
           .sort('when')//trazer as infos organizadas por data e hora
           .then(response => {
@@ -88,10 +87,10 @@ class TaskController {
   async late(req, res){//função para exibir as tarefas atrasadas
     await TaskModel
     .find({
-      'when': {'$lt': current},
-      'macaddress': {'$in': req.params.macaddress}
+      'when': {'$lt': current},//menor que a data e hora corrente
+      'macaddress': {'$in': req.params.macaddress}//informar pelo param da req o mac
     })
-    .sort('when')
+    .sort('when')//devolve as tarefas organizadas por data e hora
     .then( response => {
       return res.status(200).json(response);
     })
@@ -100,11 +99,26 @@ class TaskController {
     });
   }
 
-  async today(req, res){
+  async today(req, res){//função para exibir as tarefas do dia
     await TaskModel
           .find({ 
             'macaddress': {'$in': req.params.macaddress},
-            'when': {'$gte': startOfDay(current), '$lte': endOfDay(current)}
+            'when': {'$gte': startOfDay(current), '$lte': endOfDay(current)}//busca o primeiro e ultimo horario do dia com o Date FNS
+          })
+          .sort('when')//traz as tarefas organizadas por data e hora
+          .then(response => {
+            return res.status(200).json(response);
+          })
+          .catch(error => {
+            return res.status(500).json(error);
+          });
+  }
+
+  async week(req, res){//função para listar as tarefas da semana
+    await TaskModel
+          .find({ 
+            'macaddress': {'$in': req.params.macaddress},
+            'when': {'$gte': startOfWeek(current), '$lte': endOfWeek(current)}//traz a data do inicio da semana e do fim da semana
           })
           .sort('when')
           .then(response => {
@@ -115,11 +129,11 @@ class TaskController {
           });
   }
 
-  async week(req, res){
+  async month(req, res){//função para listar as tarefas do mês
     await TaskModel
           .find({ 
             'macaddress': {'$in': req.params.macaddress},
-            'when': {'$gte': startOfWeek(current), '$lte': endOfWeek(current)}
+            'when': {'$gte': startOfMonth(current), '$lte': endOfMonth(current)}//traz as tarefas do inicio do mês e do fim do mês
           })
           .sort('when')
           .then(response => {
@@ -130,28 +144,13 @@ class TaskController {
           });
   }
 
-  async month(req, res){
+  async year(req, res){//função para listar as tarefas do ano
     await TaskModel
           .find({ 
             'macaddress': {'$in': req.params.macaddress},
-            'when': {'$gte': startOfMonth(current), '$lte': endOfMonth(current)}
+            'when': {'$gte': startOfYear(current), '$lte': endOfYear(current)}//traz as tarefas do primeiro dia do ano e do ultimo dia do ano
           })
-          .sort('when')
-          .then(response => {
-            return res.status(200).json(response);
-          })
-          .catch(error => {
-            return res.status(500).json(error);
-          });
-  }
-
-  async year(req, res){
-    await TaskModel
-          .find({ 
-            'macaddress': {'$in': req.params.macaddress},
-            'when': {'$gte': startOfYear(current), '$lte': endOfYear(current)}
-          })
-          .sort('when')
+          .sort('when')//traz as tarefas organizadas por data e hora
           .then(response => {
             return res.status(200).json(response);
           })
