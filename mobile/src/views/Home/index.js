@@ -13,8 +13,8 @@ import api from '../../services/api';
 
 export default function Home({ navigation }){
   const [filter, setFilter] = useState('today');
-  const [tasks, setTasks] = useState([]);
-  const [load, setLoad] = useState(false);
+  const [tasks, setTasks] = useState([]);//armazena as tarefas que a api vai devolver
+  const [load, setLoad] = useState(false);//o lord vai ser verdadeiro quando tiver algo carregando e falso quando não tiver nada
   const [lateCount, setLateCount] = useState();
   const [macaddress, setMacaddress] = useState();
 
@@ -24,12 +24,12 @@ export default function Home({ navigation }){
     });
   }
   
-  async function loadTasks(){
-    setLoad(true);
-    await api.get(`/task/filter/${filter}/${macaddress}`)
+  async function loadTasks(){//função que carrega as tarefas que retornam do bd
+    setLoad(true);//vai ser true quando for carregar as tarefas
+    await api.get(`/task/filter/${filter}/${macaddress}`)//aguardando api fazer uma req get
     .then(response => {
-      setTasks(response.data)      
-      setLoad(false)
+      setTasks(response.data)//guardo em setTaks os dados que vão voltar da res      
+      setLoad(false)//depois que eu guardar as tarefas que voltaram na variavel de estado, vai ser falso
     });
   }
 
@@ -54,11 +54,11 @@ export default function Home({ navigation }){
  
   useEffect(() => {
     getMacAddress().then(() => {
-      loadTasks();
+      loadTasks();//chama a função sempre que a tela for carregada
     });
     
     lateVerify();
-  }, [filter, macaddress])
+  }, [filter, macaddress])//toda vez que o filtro mudar vai chamar de novo a função loadtask
 
   return (
   <View style={styles.container}>
@@ -92,18 +92,18 @@ export default function Home({ navigation }){
 
   
     <ScrollView style={styles.content} contentContainerStyle={{alignItems: 'center'}}>          
-        {
+        {//uso laço de repetição pra retornar todas as tarefas do bd com map
           load 
-          ? 
+          ? //se o load for true, executa o ActivityIndicator
           <ActivityIndicator color='#FBB03B' size={50}/>
-          :
-          tasks.map(t => 
+          : //se for falso, executa as tarefas, o carregamento
+          tasks.map(t => //t de task
           (
-            <TaskCard 
+            <TaskCard //passo as minhas propriedas
               done={t.done} 
               title={t.title} 
               when={t.when} 
-              type={t.type}  
+              type={t.type}  //está indo nos icones e retornando a posição de forma dinamica
               onPress={() => Show(t._id)}           
             />   
           ))       
