@@ -1,13 +1,13 @@
 import React from 'react';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
-import { format } from 'date-fns';
+import { format } from 'date-fns';//uso pra formatar data e hora
 
 import styles from './styles';
 
 // COLEÇÃO DE ÍCONES
 import typeIcons from '../../utils/typeIcons';
 
-export default function TaskCard({ done, title, when, type, onPress }){
+export default function TaskCard({ done, title, when, type, onPress }){//recupero as minhas infos
   return (
     <TouchableOpacity style={[styles.card, done && styles.done]} onPress={onPress}>
       <View style={styles.cardLeft}>
