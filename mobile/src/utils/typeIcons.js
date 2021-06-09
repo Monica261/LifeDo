@@ -10,8 +10,8 @@ import iconTravel from '../assets/travel.png';
 import iconSport from '../assets/sport.png';
 
 
-const typeIcons = [
-  null,
+const typeIcons = [ //coleção de icones
+  null,//é nula pra nunca usar a posição 0, os tipos de icones é a partir do 1 
   iconDefault, 
   iconFooteball,
   iconFood,
