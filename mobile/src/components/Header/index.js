@@ -38,7 +38,7 @@ export default function Header({ showNotification, showBack, pressNotification, 
         <Image source={logo} style={styles.logo} />
 
         { 
-        showNotification && late > 0 && //se o showNotification for true ele vai mostrar as notificações         
+        showNotification && late > 0 && //se o showNotification for maior que 0 ele vai mostrar as notificações         
         <TouchableOpacity style={styles.notification} onPress={pressNotification}>
           <Image source={bell} style={styles.notificationImage} />
           <View style={styles.circle}>
