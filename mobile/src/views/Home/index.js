@@ -14,8 +14,8 @@ import api from '../../services/api';
 export default function Home({ navigation }){
   const [filter, setFilter] = useState('today');
   const [tasks, setTasks] = useState([]);//armazena as tarefas que a api vai devolver
-  const [load, setLoad] = useState(false);//o lord vai ser verdadeiro quando tiver algo carregando e falso quando não tiver nada
-  const [lateCount, setLateCount] = useState();
+  const [load, setLoad] = useState(false);//o load vai ser verdadeiro quando tiver algo carregando e falso quando não tiver nada
+  const [lateCount, setLateCount] = useState();//variavel de estado que armazena a quantidade de tarefas atrasadas
   const [macaddress, setMacaddress] = useState();
 
   async function getMacAddress(){
@@ -33,14 +33,14 @@ export default function Home({ navigation }){
     });
   }
 
-  async function lateVerify(){
+  async function lateVerify(){//verifica quantas tarefas tem atrasadas
     await api.get(`/task/filter/late/${macaddress}`)
     .then(response => {
       setLateCount(response.data.length)      
     });
   }
 
-  function Notification(){
+  function Notification(){//função que atualiza o filtro
     setFilter('late');
   }
 
