@@ -1,0 +1,67 @@
+*é importanta criar sempre uma pasta *src pq é dentro dela os arquivos que podemos mexer
+ao longo do desenvolvimento.
+
+*dentro da pasta views é onde fica as telas do app, dentro da view eu tenho as pastas das
+telas, como: Home(tela inicial), Task(tela criar tarefa).
+
+*na pasta assets é onde sempre vai ser salva as imgs e icones, todo recurso visual.
+
+*no react native pra estilizar os elementos está sendo usado ...
+
+*tudo que eu importo do react native são elementos especifico para mobile, e tudo que eu 
+importo somente do react são elementos disponiveis tanto pra versão mobile, quanto pra versão 
+web.
+
+*o react native é um framework baseado em desenvolvimento funcional, então utiliza função o 
+tempo todo.
+
+*no arquivo app.js eu importo as minhas telas.
+
+*dentro da pasta Components é onde vai ficar todos os components reaproveitaveis em outras
+telas. a componetização aumenta a produtividade.
+
+/* COMPONENT HEADER */
+
+*na minha função Header no component Header, eu passo por parametro as variaveis que ele vai
+receber. Eu criei um parametro que diz se tem que aparecer o sino ou não, e o outro
+parametro, diz se tem que aparecer o parametro de voltar ou não.
+
+*showNotification é um parametro que vai receber true ou false, caso for true, vai aparecer o
+sino.
+
+*showBack é um parametro que vai receber true ou false, caso for true vai aparecer o btn de
+'voltar' no lugar do sino.
+
+/* COMPONENT FOOTER */
+
+*por parametro ele recebe o tipo de icone, eu mando para o parametro icone no arquivo index.js 
+na pasta Home, o conteudo ex: <Footer icon={'add'}/>
+
+*eu posso deixar o icone dinamico no arquivo index.js da pasta Footer, ex:
+<Image source={ icon == 'add' ? add : save } style={styles.image}/>
+se o icone for igual a 'add' coloca o icone de salvar, se não o de excluir
+
+/* CRIAÇÃO DOS FILTROS */
+
+*filterTextInative é uma regra no style pra quando o botão estiver inativo, essa regra é
+definida tambem no index.js na pasta HOME:
+
+- vai ser preciso armazenar em uma variavel de estado, qual é o filtro que vai esta ativado
+ex: const [filter, setFilter] = useState('today'); //ele sempre vai começar com o today
+selecionado.
+
+- regra visual: 
+<Text style={filter == 'all' ? styles.filterTextActived : styles.filterTextInative}>Todos</Text>
+caso clicado, ativa a cor laranja, caso não, fica cinza.
+
+/ *CRIAÇÃO DO COMPONENT TASK CARD * /
+
+*no arquivo index.js na pasta TaskCard passou como parametro o 'done' pra saber se uma tarefa
+está como concluida ou não
+
+/ *CONECTANDO O APP COM A API* /
+
+*o app não interpreta localhost, então eu defino o endereço de conexão com a minha api pelo IP,
+ex: baseURL: 'http://192.168.15.31:3333'
+
+

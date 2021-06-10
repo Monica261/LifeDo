@@ -1,0 +1,79 @@
+Arquitetura do projeto:
+
+MVC - Model View Controller
+traz uma definição e organização das responsabilidades dentro do Backend e Frontend
+
+*Model - dentro dessa camada eu defino a representação de uma tarefa pra ser armazenada no bd.
+(vai guardar as representações das tarefas e tudo aquilo que vai ser armazenado no bd)
+*Controller - é onde fica a regra de negocio da aplicação, onde fica as validações, é onde 
+verificamos se uma certa tarefa está cadastrada ou não.(Mongo e Node)
+*View - é a camada disponivel na parte mobile, armazena as telas.(onde vai ficar a interface, a parte do cliente)
+
+assim eu consigo separar muito bem as responsabilidades dentro do meu projeto, o que facilita
+muito a manutenção e deixa o código organizado.
+
+ARQUIVOS E PASTAS:
+
+*package.json é o meu arquivo mais importante do Node, pq sempre que nós fomos instalar
+novos modulos, dependencias, ele vai regitrar dentro do package.json e ele gera uma 
+pasta node modules, que é a pasta que guarda todos os modulos do nosso projeto.
+
+*dentro da pasta *config vão ficas as minhas configurações com o bd.
+
+*dentro da pasta *controller vai ficar toda a parte inteligente.
+
+*dentro da pasta *model é onde fica as representações das informações que vão fica armazenadas no bd.
+
+*o express é um modulo do Node que vai deixar o meu servidor online, eu defino que porta 
+a minha API vai receber as requisições e devolver as respostas.
+
+*o nodemon atualiza sozinho conforme eu salvo meu arquivo.
+
+*instalei o mongoose pra fazer a conexão com o bd e pra definir a representação de dados
+que devem ser armazenados no bd.
+
+*criei a pasta *config e dentro dela o meu arquivo database.js, pq nele eu faço a importação
+do mongoose e a conexão.
+
+*dentro da minha pasta *model eu criei o meu arquivo TaskModel.js que é a representação de
+informações a cerca de uma tarefa que será cadastrada no bd.
+
+*eu to capturando o macadress pq ele é um identificador fisico único de cada dispositivo. 
+
+*dentro da minha pasta *controller eu tenho o meu arquivo *TaskController.js, nele eu vou trazer
+o meu modelo(TaskModel.js), esse meu arquivo eu escrevo ele em forma de class, pq dentro de uma
+class eu posso ter várias funções.
+
+*tudo que vier pelo corpo da req eu vou transformar ele em um TaskModel, pq no meu TaskModel tem 
+os meus campos obrigatorios(no body eu informo esses campos no corpo da requisição).
+
+*depois eu vou no meu *index.js e incluo ...
+
+*dentro da pasta routes eu vou criar o arquivo *TaskRoutes.js, dentro dele eu crio as minhas 
+rotas.
+
+*preciso mostrar pra minha API como ela faz pra chegar na rota, defino isso na minha index.js.
+
+*dentro da pasta middlewares eu tenho o meu arquivo *TaskValidation.js de validação dos campos
+obrigatorios, pra isso eu to usando um conceito muito importante dentro das APIS que são os
+middlewares(que no caso são funções de interceptação, eles tem acesso tanto a req quanto a 
+resposta), ele analisa e diz se pode prosseguir ou não. 
+
+*importo o meu modulo de validação no TaskRoutes.js.
+
+*23. Middleware de Validação de Tarefa, 24. Atualizando uma Tarefa - ASSISTIR NOVAMENTE.
+
+*ORGANIZAR PROJETO - ORDEM DE APRESENTAÇÃO.
+
+
+/*INSOMNIA*/
+
+*Eu passo as infos no corpo da requisição, pra isso eu uso o Insomnia. Add as requisições
+na minha pasta(create, put, delete, update, all, show, done, late, today, week, month, year), na
+hora de mandar infos eu escolho JSON pq vou mandar e receber infos.
+
+*configurei uma URL padrão para todas as rotas no Insomnia, isso facilita muito caso eu tenha
+muitas rotas e precise mudar a url de conexão futuramente.
+
+/*ATUALIZANDO UMA TAREFA*/
+
