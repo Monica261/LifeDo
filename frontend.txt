@@ -64,4 +64,21 @@ está como concluida ou não
 *o app não interpreta localhost, então eu defino o endereço de conexão com a minha api pelo IP,
 ex: baseURL: 'http://192.168.15.31:3333'
 
+/*Definindo a navegação entre as telas*/
+
+*pra fazer a navegação entre as telas utilizou as bibliotecas:
+- react navigation
+- react native gesture handle - pra questão do toque na tela, a navegação.
+- react native reanimated - pra animação de navegação entre as telas.
+
+*no arquivo app.js criar um container de navegação e define a sequencia de telas.
+
+/*CADASTRO DE TAREFA*/
+
+*<Image source={icon} style={[styles.imageIcon, type && type != index && styles.typeIconInative]}/>
+-se o type for diferente do index, é pq não é ele que está ativado e aplica o inativa
+
+/**/
+
+useEffect é utilizado sempre antes da tela ser carregada
 

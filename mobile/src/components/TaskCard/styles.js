@@ -4,10 +4,10 @@ const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 10,
+    padding: 12,
     width: '90%',
     marginVertical: 10,
-    height: 80,
+    height: 90,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,

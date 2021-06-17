@@ -18,7 +18,7 @@ export default function Home({ navigation }){
   const [lateCount, setLateCount] = useState();//variavel de estado que armazena a quantidade de tarefas atrasadas
   const [macaddress, setMacaddress] = useState();
 
-  async function getMacAddress(){
+  async function getMacAddress(){//função para pegar o macaddress
     await Network.getMacAddressAsync().then(mac => {
       setMacaddress(mac);
     });
@@ -44,16 +44,16 @@ export default function Home({ navigation }){
     setFilter('late');
   }
 
-  function New(){
-    navigation.navigate('Task');
+  function New(){//função pra add uma nova tarefa
+    navigation.navigate('Task');//toda vez que essa função for chamada vai navegar ate a tela Task
   }
 
-  function Show(id){
-    navigation.navigate('Task', {idtask: id});
+  function Show(id){//função pra mostrar os detalhes de uma tarefa
+    navigation.navigate('Task', {idtask: id});//passo o id da tarefa
   }
  
   useEffect(() => {
-    getMacAddress().then(() => {
+    getMacAddress().then(() => {//depois que carregar o getmacaddress carrega o loadtask
       loadTasks();//chama a função sempre que a tela for carregada
     });
     
@@ -104,7 +104,7 @@ export default function Home({ navigation }){
               title={t.title} 
               when={t.when} 
               type={t.type}  //está indo nos icones e retornando a posição de forma dinamica
-              onPress={() => Show(t._id)}           
+              onPress={() => Show(t._id)}//recebe a função Show e informo o ID que vem com a tarefa           
             />   
           ))       
         }

@@ -18,10 +18,11 @@ import iconClock from '../../assets/clock.png';
 export default function DateTimeInputAndroid({ type, save, date, hour }){
   const [datetime, setDateTime] = useState();
 
+  //quando o component for carregado eu faço uma verificação, pq date e hora são formatos diferentes:
   useEffect(() => {
-    if(type == 'date' && date){
-      setDateTime(format(new Date(date), 'dd/MM/yyyy'));
-      save(format(new Date(date), 'yyyy-MM-dd'));
+    if(type == 'date' && date){//se o tipo é igual a date e se date tem alguma coisa é pq eu quero formatar ele
+      setDateTime(format(new Date(date), 'dd/MM/yyyy'));//formato a data que fica visivel pro usuario no campo
+      save(format(new Date(date), 'yyyy-MM-dd'));//formato que salva no bd, essa não aparece pro usuario
     }
 
     if(type == 'hour' && hour){
@@ -37,9 +38,9 @@ export default function DateTimeInputAndroid({ type, save, date, hour }){
       });
 
       if(action == DatePickerAndroid.dateSetAction)//se de fato o usuario selecionou a data
-        if(isPast(new Date(year, month, day, 24, 59, 59, 0))){ 
+        if(isPast(new Date(year, month, day, 24, 59, 59, 0))){//verifica se a data selecionada tá no passado
           return Alert.alert('Você não pode escolhar uma data passada!');
-        }else{
+        }else{//se não, eu salvo as informações
           setDateTime(`${day} - ${month} - ${year}`); 
           save(format(new Date(year, month, day), 'yyyy-MM-dd'));
         }
@@ -50,7 +51,7 @@ export default function DateTimeInputAndroid({ type, save, date, hour }){
 
       if(action !== TimePickerAndroid.dismissedAction)//verifico se a ação é diferente
       setDateTime(`${hour}:${minute}`);
-      save(format(new Date(2020, 12, 1, hour, minute, 0, 0), 'HH:mm:ss'));      
+      save(format(new Date(2021, 12, 1, hour, minute, 0, 0), 'HH:mm:ss'));      
     }
   }
 

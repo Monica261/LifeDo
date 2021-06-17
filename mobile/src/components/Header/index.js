@@ -12,7 +12,7 @@ import Contato from '../../views/Contato';
 
 
 export default function Header({ showNotification, showBack, pressNotification, late, navigation }){
-  function Back(){
+  function Back(){//função que volta pra tela Home
     navigation.navigate('Home');
   }
 

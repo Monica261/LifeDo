@@ -7,7 +7,7 @@ import styles from './styles';
 // COLEÇÃO DE ÍCONES
 import typeIcons from '../../utils/typeIcons';
 
-export default function TaskCard({ done, title, when, type, onPress }){//recupero as minhas infos
+export default function TaskCard({ done, title, when, type, onPress }){//recupero as minhas propriedades
   return (
     <TouchableOpacity style={[styles.card, done && styles.done]} onPress={onPress}>
       <View style={styles.cardLeft}>

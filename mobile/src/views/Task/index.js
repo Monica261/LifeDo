@@ -32,10 +32,10 @@ export default function Task({ navigation }){
   const [date, setDate] = useState();
   const [hour, setHour] = useState();  
   const [macaddress, setMacaddress] = useState(); 
-  const [load, setLoad] = useState(true);
+  const [load, setLoad] = useState(true);//a tela já abre carregando
 
   async function SaveTask(){
-    
+    //verificações para garantir que o usuario preencheu tudo:
     if(!title)
     return Alert.alert('Defina o nome da tarefa!');
 
@@ -51,7 +51,7 @@ export default function Task({ navigation }){
     if(!hour)
     return Alert.alert('Escolha uma hora para a tarefa!');
 
-    if(id){
+    if(id){//verifico se tem o ID, pq se tiver quero atualizar a tarefa
       await api.put(`/task/${id}`, {
         macaddress,
         done,
@@ -63,7 +63,7 @@ export default function Task({ navigation }){
         navigation.navigate('Home');
       });
 
-    }else{
+    }else{//se não tiver o ID, vai cadastrar
       await api.post('/task', {
         macaddress,
         type,
@@ -77,22 +77,22 @@ export default function Task({ navigation }){
 
   }
 
-  async function LoadTask(){
-    await api.get(`task/${id}`).then(response => {
+  async function LoadTask(){//função que carrega os detalhes de uma tarefa atraves do ID
+    await api.get(`task/${id}`).then(response => {//rota que carrega o id de uma tarefa
       setLoad(true);
       setDone(response.data.done);
       setType(response.data.type);
       setTitle(response.data.title);
       setDescription(response.data.description);
-      setDate(response.data.when);
+      setDate(response.data.when);//recebe dessa form 'when' pq o mongo guarda a hora e a data juntos
       setHour(response.data.when);
     });
   }
 
-  async function getMacAddress(){
+  async function getMacAddress(){//função para pegar o macaddress
     await Network.getMacAddressAsync().then(mac => {
       setMacaddress(mac);
-      setLoad(false);
+      setLoad(false);//se o macaddress for carregado, o setLoad é falso
     });
   }
 
@@ -117,9 +117,9 @@ export default function Task({ navigation }){
   useEffect(() => {
     getMacAddress();   
     
-    if(navigation.state.params){
-      setId(navigation.state.params.idtask);
-      LoadTask().then(() => setLoad(false));
+    if(navigation.state.params){//se existir parametros
+      setId(navigation.state.params.idtask);//atualiza o ID. o id ta chegando junto com o parametro
+      LoadTask().then(() => setLoad(false));//se ele carregar as infos eu coloco o setLoad como falso
     }
       
      
@@ -171,7 +171,7 @@ export default function Task({ navigation }){
         <DateTimeInput type={'hour'} save={setHour} hour={hour} />
     
           {
-          id &&
+          id && //se o ID já existir, exibe isso
           <View style={styles.inLine}>
             <View style={styles.inputInline}>
               <Switch onValueChange={() => setDone(!done)} value={done} thumbColor={ done ? '#00761B' : '#EE6B26'}/>
