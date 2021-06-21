@@ -10,7 +10,7 @@ import QrCode from './src/views/QrCode';
 import Contato from './src/views/Contato';
 
 const Routes = createAppContainer(
-  createSwitchNavigator({
+  createSwitchNavigator({//defino a sequencia de telas
     Home,
     Task,
     Contato

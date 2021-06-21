@@ -12,10 +12,10 @@ const {
 
 const current = new Date();//essa minha const guarda a data e hora atual
 
-class TaskController {
+class TaskController {//está sendo feito no formato de class pq dentro dela eu posso ter várias funções
 
   async create(req, res){//recebe por parametro a req e a resp, essa função cria uma nova tarefa no BD
-    const task = new TaskModel(req.body);//recebe oq vai chegar pelo corpo da req
+    const task = new TaskModel(req.body);//recebe oq vai chegar pelo corpo da req e converto em taskModel
     await task
           .save()//quando receber as infos, salva no bd
           .then(response => {//caso tudo der certo

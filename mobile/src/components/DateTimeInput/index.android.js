@@ -42,7 +42,7 @@ export default function DateTimeInputAndroid({ type, save, date, hour }){
           return Alert.alert('Você não pode escolhar uma data passada!');
         }else{//se não, eu salvo as informações
           setDateTime(`${day} - ${month} - ${year}`); 
-          save(format(new Date(year, month, day), 'yyyy-MM-dd'));
+          save(format(new Date(year, month, day), 'yyyy-MM-dd'));//to formatando a data que é salva no bd
         }
     }else{//se o usuario n selecionou data é pq ele quer guardar hora
       const { action, hour, minute } = await TimePickerAndroid.open({//vou recuperar do TimePicker
@@ -51,7 +51,7 @@ export default function DateTimeInputAndroid({ type, save, date, hour }){
 
       if(action !== TimePickerAndroid.dismissedAction)//verifico se a ação é diferente
       setDateTime(`${hour}:${minute}`);
-      save(format(new Date(2021, 12, 1, hour, minute, 0, 0), 'HH:mm:ss'));      
+      save(format(new Date(2021, 12, 1, hour, minute, 0, 0), 'HH:mm:ss'));//to formatando a hora que é salva no bd      
     }
   }
 
